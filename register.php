@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
       echo '<script>alert("Username cannot be blank"); location.href = "./register.php";</script>';
     }
     else{
-      $sql = "SELECT id FROM Admin WHERE username = ?";
+      $sql = "SELECT id FROM users WHERE username = ?";
       $stmt = mysqli_prepare($con, $sql);
       if($stmt)
       {
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     // If there were no errors, insert data into the database
     if(empty($add_new_username_err) && empty($add_new_password_err) && empty($add_new_confirm_password_err))
     {
-      $sql = "INSERT INTO Admin (username, password) VALUES (?, ?)";
+      $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
       $stmt = mysqli_prepare($con, $sql);
       if ($stmt)
       {
