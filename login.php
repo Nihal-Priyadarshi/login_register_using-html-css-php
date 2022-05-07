@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
   if(empty($err))
   {
-    $sql = "SELECT id, username, password FROM Admin WHERE username = ?";
+    $sql = "SELECT id, username, password FROM users WHERE username = ?";
     $stmt = mysqli_prepare($con, $sql);
     mysqli_stmt_bind_param($stmt, "s", $param_username);
     $param_username = $username;
